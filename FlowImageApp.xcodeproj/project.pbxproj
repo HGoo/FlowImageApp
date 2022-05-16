@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1CC52C28315156005E9DF3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CC52B28315156005E9DF3 /* CollectionViewCell.swift */; };
+		DD1CC52E28327641005E9DF3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CC52D28327641005E9DF3 /* Model.swift */; };
 		DD9E5BBC283142D900627323 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E5BBB283142D900627323 /* AppDelegate.swift */; };
 		DD9E5BBE283142D900627323 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E5BBD283142D900627323 /* SceneDelegate.swift */; };
-		DD9E5BC0283142D900627323 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E5BBF283142D900627323 /* ViewController.swift */; };
+		DD9E5BC0283142D900627323 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E5BBF283142D900627323 /* MainViewController.swift */; };
 		DD9E5BC3283142D900627323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9E5BC1283142D900627323 /* Main.storyboard */; };
 		DD9E5BC5283142D900627323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD9E5BC4283142D900627323 /* Assets.xcassets */; };
 		DD9E5BC8283142D900627323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9E5BC6283142D900627323 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD1CC52B28315156005E9DF3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		DD1CC52D28327641005E9DF3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DD9E5BB8283142D900627323 /* FlowImageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowImageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9E5BBB283142D900627323 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD9E5BBD283142D900627323 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD9E5BBF283142D900627323 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DD9E5BBF283142D900627323 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DD9E5BC2283142D900627323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD9E5BC4283142D900627323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD9E5BC7283142D900627323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD1CC52A28315134005E9DF3 /* Main VC */ = {
+			isa = PBXGroup;
+			children = (
+				DD9E5BBF283142D900627323 /* MainViewController.swift */,
+				DD1CC52B28315156005E9DF3 /* CollectionViewCell.swift */,
+			);
+			path = "Main VC";
+			sourceTree = "<group>";
+		};
 		DD9E5BAF283142D900627323 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +69,64 @@
 		DD9E5BBA283142D900627323 /* FlowImageApp */ = {
 			isa = PBXGroup;
 			children = (
-				DD9E5BBB283142D900627323 /* AppDelegate.swift */,
-				DD9E5BBD283142D900627323 /* SceneDelegate.swift */,
-				DD9E5BBF283142D900627323 /* ViewController.swift */,
-				DD9E5BC1283142D900627323 /* Main.storyboard */,
-				DD9E5BC4283142D900627323 /* Assets.xcassets */,
-				DD9E5BC6283142D900627323 /* LaunchScreen.storyboard */,
-				DD9E5BC9283142D900627323 /* Info.plist */,
+				DD9E5BCF283142F000627323 /* Resources */,
+				DD9E5BD4283143B100627323 /* Model */,
+				DD9E5BD02831435B00627323 /* View Controllers  */,
+				DD9E5BD12831438300627323 /* Storyboard */,
+				DD9E5BD22831438E00627323 /* Network */,
+				DD9E5BD3283143A200627323 /* StorageData */,
 			);
 			path = FlowImageApp;
+			sourceTree = "<group>";
+		};
+		DD9E5BCF283142F000627323 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD9E5BBB283142D900627323 /* AppDelegate.swift */,
+				DD9E5BBD283142D900627323 /* SceneDelegate.swift */,
+				DD9E5BC4283142D900627323 /* Assets.xcassets */,
+				DD9E5BC9283142D900627323 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD9E5BD02831435B00627323 /* View Controllers  */ = {
+			isa = PBXGroup;
+			children = (
+				DD1CC52A28315134005E9DF3 /* Main VC */,
+			);
+			path = "View Controllers ";
+			sourceTree = "<group>";
+		};
+		DD9E5BD12831438300627323 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				DD9E5BC1283142D900627323 /* Main.storyboard */,
+				DD9E5BC6283142D900627323 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		DD9E5BD22831438E00627323 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DD9E5BD3283143A200627323 /* StorageData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StorageData;
+			sourceTree = "<group>";
+		};
+		DD9E5BD4283143B100627323 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD1CC52D28327641005E9DF3 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +200,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD9E5BC0283142D900627323 /* ViewController.swift in Sources */,
+				DD1CC52E28327641005E9DF3 /* Model.swift in Sources */,
+				DD9E5BC0283142D900627323 /* MainViewController.swift in Sources */,
 				DD9E5BBC283142D900627323 /* AppDelegate.swift in Sources */,
+				DD1CC52C28315156005E9DF3 /* CollectionViewCell.swift in Sources */,
 				DD9E5BBE283142D900627323 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +353,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BN87K5QK52;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FlowImageApp/Info.plist;
+				INFOPLIST_FILE = FlowImageApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -299,7 +363,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = HG.FlowImageApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -317,7 +381,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BN87K5QK52;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FlowImageApp/Info.plist;
+				INFOPLIST_FILE = FlowImageApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -327,7 +391,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = HG.FlowImageApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
