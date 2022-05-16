@@ -13,6 +13,8 @@ class MainViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var descriptionLable: UILabel!
     
+    var images: ImageData?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         selestedImage.image = UIImage(named: "testImage")
@@ -21,6 +23,7 @@ class MainViewController: UIViewController {
         collectionView.delegate = self
         
         setupImageSize()
+        loadJson(filename: imageData)
     }
     
     private func setupImageSize() {
@@ -29,6 +32,16 @@ class MainViewController: UIViewController {
         
     }
     
+    func loadJson(filename: String) -> [ImageData]? {
+        let decoder = JSONDecoder()
+        guard let url = Bundle.main.url(forResource: filename, withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let imageData = try? decoder.decode(ImageData.self, from: data)
+        else { return nil }
+        descriptionLable.text = imageData.url
+        return [imageData]
+        
+    }
 
 }
 
