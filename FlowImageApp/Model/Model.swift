@@ -8,8 +8,10 @@
 import Foundation
 
 struct ImageData: Codable {
-    let imagename: String?
-    let url: String? 
+    let imageName: String
+    let lat: Float
+    let long: Float
+    let url: String
 }
 
 

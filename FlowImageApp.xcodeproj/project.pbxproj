@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		DD1CC52C28315156005E9DF3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CC52B28315156005E9DF3 /* CollectionViewCell.swift */; };
 		DD1CC52E28327641005E9DF3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CC52D28327641005E9DF3 /* Model.swift */; };
+		DD1CC5502832CF13005E9DF3 /* imageData.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1CC54F2832CF13005E9DF3 /* imageData.json */; };
+		DD1CC5532832D091005E9DF3 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CC5522832D091005E9DF3 /* DataLoader.swift */; };
+		DD1CC5552832DA8C005E9DF3 /* StorageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1CC5542832DA8C005E9DF3 /* StorageData.swift */; };
 		DD9E5BBC283142D900627323 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E5BBB283142D900627323 /* AppDelegate.swift */; };
 		DD9E5BBE283142D900627323 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E5BBD283142D900627323 /* SceneDelegate.swift */; };
 		DD9E5BC0283142D900627323 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E5BBF283142D900627323 /* MainViewController.swift */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		DD1CC52B28315156005E9DF3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		DD1CC52D28327641005E9DF3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		DD1CC54F2832CF13005E9DF3 /* imageData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = imageData.json; sourceTree = "<group>"; };
+		DD1CC5522832D091005E9DF3 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		DD1CC5542832DA8C005E9DF3 /* StorageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageData.swift; sourceTree = "<group>"; };
 		DD9E5BB8283142D900627323 /* FlowImageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowImageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD9E5BBB283142D900627323 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD9E5BBD283142D900627323 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 				DD9E5BBD283142D900627323 /* SceneDelegate.swift */,
 				DD9E5BC4283142D900627323 /* Assets.xcassets */,
 				DD9E5BC9283142D900627323 /* Info.plist */,
+				DD1CC54F2832CF13005E9DF3 /* imageData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -110,6 +117,7 @@
 		DD9E5BD22831438E00627323 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				DD1CC5522832D091005E9DF3 /* DataLoader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -117,6 +125,7 @@
 		DD9E5BD3283143A200627323 /* StorageData */ = {
 			isa = PBXGroup;
 			children = (
+				DD1CC5542832DA8C005E9DF3 /* StorageData.swift */,
 			);
 			path = StorageData;
 			sourceTree = "<group>";
@@ -190,6 +199,7 @@
 				DD9E5BC8283142D900627323 /* LaunchScreen.storyboard in Resources */,
 				DD9E5BC5283142D900627323 /* Assets.xcassets in Resources */,
 				DD9E5BC3283142D900627323 /* Main.storyboard in Resources */,
+				DD1CC5502832CF13005E9DF3 /* imageData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +212,8 @@
 			files = (
 				DD1CC52E28327641005E9DF3 /* Model.swift in Sources */,
 				DD9E5BC0283142D900627323 /* MainViewController.swift in Sources */,
+				DD1CC5532832D091005E9DF3 /* DataLoader.swift in Sources */,
+				DD1CC5552832DA8C005E9DF3 /* StorageData.swift in Sources */,
 				DD9E5BBC283142D900627323 /* AppDelegate.swift in Sources */,
 				DD1CC52C28315156005E9DF3 /* CollectionViewCell.swift in Sources */,
 				DD9E5BBE283142D900627323 /* SceneDelegate.swift in Sources */,

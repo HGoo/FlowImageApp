@@ -13,44 +13,39 @@ class MainViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var descriptionLable: UILabel!
     
-    var images: ImageData?
+    var imagesData: [ImageData]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setup()
+    }
+    
+    private func setup() {
         selestedImage.image = UIImage(named: "testImage")
         
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        setupImageSize()
-        loadJson(filename: imageData)
+        imagesData = DataLoader().imagesData
     }
     
-    private func setupImageSize() {
-        selestedImage.frame.size.height =  view.frame.size.height / 60
-        selestedImage.frame.size.width =  10
-        
-    }
+//    private func setupImageSize() {
+//        selestedImage.frame.size.height =  view.frame.size.height / 60
+//        selestedImage.frame.size.width =  10
+//
+//    }
     
-    func loadJson(filename: String) -> [ImageData]? {
-        let decoder = JSONDecoder()
-        guard let url = Bundle.main.url(forResource: filename, withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let imageData = try? decoder.decode(ImageData.self, from: data)
-        else { return nil }
-        descriptionLable.text = imageData.url
-        return [imageData]
-        
-    }
+    
 
 }
 
 // MARK: - UICollectionViewDelegat
 
 extension MainViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        collectionView.deselectItem(at: indexPath, animated: true)
+//    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -58,13 +53,14 @@ extension MainViewController: UICollectionViewDelegate {
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return imagesData?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
-        cell.configure()
+        guard let imageData = imagesData?[indexPath.row] else { return cell}
+        cell.configureCell(imageData: imageData, index: indexPath)
         return cell
     }
 }
