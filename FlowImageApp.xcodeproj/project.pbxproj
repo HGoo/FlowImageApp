@@ -18,6 +18,8 @@
 		DD9E5BC3283142D900627323 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9E5BC1283142D900627323 /* Main.storyboard */; };
 		DD9E5BC5283142D900627323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD9E5BC4283142D900627323 /* Assets.xcassets */; };
 		DD9E5BC8283142D900627323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9E5BC6283142D900627323 /* LaunchScreen.storyboard */; };
+		DDA2599A2833E77E0013D74D /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA259992833E77E0013D74D /* NetworkRequest.swift */; };
+		DDA2599C2833E7AC0013D74D /* NetworkDataFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2599B2833E7AC0013D74D /* NetworkDataFetch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		DD9E5BC4283142D900627323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD9E5BC7283142D900627323 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD9E5BC9283142D900627323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDA259992833E77E0013D74D /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		DDA2599B2833E7AC0013D74D /* NetworkDataFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				DD1CC5522832D091005E9DF3 /* DataLoader.swift */,
+				DDA259992833E77E0013D74D /* NetworkRequest.swift */,
+				DDA2599B2833E7AC0013D74D /* NetworkDataFetch.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -212,7 +218,9 @@
 			files = (
 				DD1CC52E28327641005E9DF3 /* Model.swift in Sources */,
 				DD9E5BC0283142D900627323 /* MainViewController.swift in Sources */,
+				DDA2599A2833E77E0013D74D /* NetworkRequest.swift in Sources */,
 				DD1CC5532832D091005E9DF3 /* DataLoader.swift in Sources */,
+				DDA2599C2833E7AC0013D74D /* NetworkDataFetch.swift in Sources */,
 				DD1CC5552832DA8C005E9DF3 /* StorageData.swift in Sources */,
 				DD9E5BBC283142D900627323 /* AppDelegate.swift in Sources */,
 				DD1CC52C28315156005E9DF3 /* CollectionViewCell.swift in Sources */,

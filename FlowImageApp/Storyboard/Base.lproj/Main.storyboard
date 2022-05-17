@@ -50,6 +50,9 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y56-wy-cOz">
                                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                                                 </imageView>
+                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="qP0-aE-tJC">
+                                                                    <rect key="frame" x="90" y="90" width="20" height="20"/>
+                                                                </activityIndicatorView>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="y56-wy-cOz" firstAttribute="leading" secondItem="oxZ-gT-yK0" secondAttribute="leading" id="CE3-cB-9VD"/>
@@ -57,13 +60,16 @@
                                                                 <constraint firstItem="y56-wy-cOz" firstAttribute="top" secondItem="oxZ-gT-yK0" secondAttribute="top" id="RbP-f6-a9F"/>
                                                                 <constraint firstAttribute="trailing" secondItem="y56-wy-cOz" secondAttribute="trailing" id="Sfw-YL-3WD"/>
                                                                 <constraint firstAttribute="bottom" secondItem="y56-wy-cOz" secondAttribute="bottom" id="URN-9I-UUN"/>
+                                                                <constraint firstItem="qP0-aE-tJC" firstAttribute="centerX" secondItem="oxZ-gT-yK0" secondAttribute="centerX" id="YSV-wp-lwk"/>
                                                                 <constraint firstAttribute="bottom" secondItem="y56-wy-cOz" secondAttribute="bottom" id="kXb-l7-OG0"/>
+                                                                <constraint firstItem="qP0-aE-tJC" firstAttribute="centerY" secondItem="oxZ-gT-yK0" secondAttribute="centerY" id="lLp-7n-9mI"/>
                                                                 <constraint firstItem="y56-wy-cOz" firstAttribute="top" secondItem="oxZ-gT-yK0" secondAttribute="top" id="uhk-wC-U41"/>
                                                                 <constraint firstItem="y56-wy-cOz" firstAttribute="leading" secondItem="oxZ-gT-yK0" secondAttribute="leading" id="wGz-BW-CME"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="200" height="200"/>
                                                         <connections>
+                                                            <outlet property="activituIndicator" destination="qP0-aE-tJC" id="9mu-e5-RQx"/>
                                                             <outlet property="cellImage" destination="y56-wy-cOz" id="pyi-Pw-PuJ"/>
                                                         </connections>
                                                     </collectionViewCell>

@@ -9,7 +9,10 @@ import Foundation
 import UIKit
 
 class StorageData {
-    func fetchCachImage(with url: String?, imageView: UIImageView, _ completion: @escaping (UIImage) -> ()) {
+    
+    static let shared = StorageData()
+    
+    func fetchCachImage(with url: String?, imageView: UIImageView, _ completion: @escaping (UIImage?) -> ()) {
         guard let url = url else { return }
         guard let imageUrl = url.getURL() else {
             imageView.image = UIImage(named: "notFound")
@@ -24,21 +27,26 @@ class StorageData {
         fetchImage(url: imageUrl, url, completion)
     }
     
-    func fetchImage(url imageUrl: URL, _ url: String, _ completion: @escaping (UIImage) -> ()) {
+    func fetchImage(url imageUrl: URL, _ url: String, _ completion: @escaping (UIImage?) -> ()) {
         URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-            if let error = error { print(error, "00000000000")
-                completion(UIImage(named: "notFound") ?? <#default value#>)
-                return }
-            print(1)
-            guard let data = data, let response = response else { return }
-            guard let responseURL = response.url else {  return }
-            if responseURL.absoluteString != url { return }
-            
             DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                    print("0000000000000000000000")
+                    completion(nil)
+                    print("nillllllllllll")
+                    return
+                }
+                
+                guard let data = data, let response = response else { return }
+                guard let responseURL = response.url else {  return }
+                if responseURL.absoluteString != url { return }
+                
+                
                 guard let image = UIImage(data: data) else { return }
                 completion(image)
+                self.saveImageToCache(data: data, response: response)
             }
-            self.saveImageToCache(data: data, response: response)
         }.resume()
     }
     
