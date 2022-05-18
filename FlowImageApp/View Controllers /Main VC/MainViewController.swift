@@ -22,8 +22,6 @@ class MainViewController: UIViewController {
     }
     
     private func setup() {
-        selestedImage.image = UIImage(named: "testImage")
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -46,6 +44,31 @@ extension MainViewController: UICollectionViewDelegate {
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        collectionView.deselectItem(at: indexPath, animated: true)
 //    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let url = imagesData?[indexPath.row].url
+        
+        selestedImage.image = nil
+        StorageData.shared.fetchCachImage(with: url, imageView: selestedImage) { [weak self] image, error in
+            guard let self = self else { return }
+            if error == nil {
+                self.selestedImage.image = image
+            }
+            
+            
+            
+        }
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        let pulse = CASpringAnimation(keyPath: "transform.scale")
+        pulse.duration = 0.5
+        pulse.fromValue = 0.95
+        pulse.toValue = 1
+//            pulse.autoreverses = true
+//            pulse.initialVelocity = 0.5
+//            pulse.damping = 1
+        cell?.layer.add(pulse, forKey: nil)
+    }
 }
 
 // MARK: - UICollectionViewDataSource

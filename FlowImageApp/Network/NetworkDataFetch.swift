@@ -16,23 +16,18 @@ class NetworkDataFetch {
         
     }
     
-    func fetchReview(pagination: Bool = false, urlString: String, completion: @escaping (UIImage, Error?) -> Void) {
+    func fetchImage(urlString: String, completion: @escaping (UIImage?, Error?) -> ()) {
         NetworkRequest.shared.requestData(urlString: urlString) { data in
             
             switch data {
             case .success(let data):
-                do {
-                    let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let imageData = try decoder.decode(ImageData.self, from: data)
-                    responce(imageData, nil)
-                } catch let jsonError {
-                    print("Failed to decode JSON", jsonError)
-                }
+                guard let image = UIImage(data: data) else { return }
+                completion(image, nil)
                 
             case .failure(let error):
                 print("Error received reuesting data: \(error.localizedDescription)")
-                responce(nil, error)
+                completion(nil, error)
             }
         }
     }
+}

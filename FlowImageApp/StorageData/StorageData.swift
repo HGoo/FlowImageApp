@@ -12,7 +12,7 @@ class StorageData {
     
     static let shared = StorageData()
     
-    func fetchCachImage(with url: String?, imageView: UIImageView, _ completion: @escaping (UIImage?) -> ()) {
+    func fetchCachImage(with url: String?, imageView: UIImageView, _ completion: @escaping (UIImage?, Error?) -> ()) {
         guard let url = url else { return }
         guard let imageUrl = url.getURL() else {
             imageView.image = UIImage(named: "notFound")
@@ -20,36 +20,19 @@ class StorageData {
         }
         
         if let cachedImage = self.getCachedImage(url: imageUrl) {
-            completion(cachedImage)
+            completion(cachedImage, nil)
+            print("000000000000000000000")
             return
         }
         
-        fetchImage(url: imageUrl, url, completion)
-    }
-    
-    func fetchImage(url imageUrl: URL, _ url: String, _ completion: @escaping (UIImage?) -> ()) {
-        URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print(error)
-                    print("0000000000000000000000")
-                    completion(nil)
-                    print("nillllllllllll")
-                    return
-                }
-                
-                guard let data = data, let response = response else { return }
-                guard let responseURL = response.url else {  return }
-                if responseURL.absoluteString != url { return }
-                
-                
-                guard let image = UIImage(data: data) else { return }
-                completion(image)
-                self.saveImageToCache(data: data, response: response)
+        NetworkDataFetch.shared.fetchImage(urlString: url) { image, error in
+            if error == nil {
+                completion(image, nil)
+                print("999999999999999999999")
             }
-        }.resume()
+        }
     }
-    
+ 
     func saveImageToCache(data: Data, response: URLResponse) {
         guard let responseURL = response.url else { return }
         let cachedResponse = CachedURLResponse(response: response, data: data)

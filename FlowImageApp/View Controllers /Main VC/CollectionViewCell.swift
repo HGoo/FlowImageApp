@@ -18,15 +18,19 @@ class CollectionViewCell: UICollectionViewCell {
         indexPath = index
         activituIndicator.startAnimating()
         activituIndicator.hidesWhenStopped = true
+        cellImage.image = nil
         
         StorageData.shared.fetchCachImage(with: imageData.url,
-                                     imageView: cellImage) { image in
-            self.asyncIndex = index.row
-            guard let image = image else {
-                self.placeholder()
-                return
+                                          imageView: cellImage) { [weak self] image, error in
+            guard let self = self else { return }
+            if error == nil {
+                self.asyncIndex = index.row
+                guard let image = image else {
+                    self.placeholder()
+                    return
+                }
+                self.equalsAsync(image)
             }
-            self.equalsAsync(image)
         }
         
         errorHandling()
@@ -43,7 +47,8 @@ class CollectionViewCell: UICollectionViewCell {
     
     //Handling Error 503
     func errorHandling() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 60) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 61) { [weak self] in
+            guard let self = self else { return }
             if self.activituIndicator.isAnimating == true {
                 self.placeholder()
             }
