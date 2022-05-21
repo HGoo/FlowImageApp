@@ -20,13 +20,41 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="86Y-EW-v5B">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fTG-oW-eou">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEj-XZ-2Iw">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fTG-oW-eou">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                                <color key="backgroundColor" red="0.070179246366024017" green="0.82913833856582642" blue="0.80614465475082397" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-Fm-aWL">
+                                                <rect key="frame" x="197" y="90" width="20" height="20"/>
+                                            </activityIndicatorView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TP-M7-vWv">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                                <connections>
+                                                    <segue destination="HOf-br-BXf" kind="show" identifier="Web" id="agn-pX-XRH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="5ac-rh-hjG"/>
-                                            <constraint firstAttribute="height" constant="200" id="t5w-Zm-AGd"/>
+                                            <constraint firstItem="ohf-Fm-aWL" firstAttribute="centerX" secondItem="HEj-XZ-2Iw" secondAttribute="centerX" id="0K5-Ip-Izy"/>
+                                            <constraint firstAttribute="bottom" secondItem="fTG-oW-eou" secondAttribute="bottom" id="2Sa-1T-YMN"/>
+                                            <constraint firstItem="9TP-M7-vWv" firstAttribute="leading" secondItem="fTG-oW-eou" secondAttribute="leading" id="6An-XT-7nh"/>
+                                            <constraint firstAttribute="height" constant="200" id="LvM-y0-HsL"/>
+                                            <constraint firstItem="fTG-oW-eou" firstAttribute="top" secondItem="HEj-XZ-2Iw" secondAttribute="top" id="NXA-P2-1Tk"/>
+                                            <constraint firstAttribute="trailing" secondItem="fTG-oW-eou" secondAttribute="trailing" id="Y8c-dk-OOO"/>
+                                            <constraint firstItem="ohf-Fm-aWL" firstAttribute="centerY" secondItem="HEj-XZ-2Iw" secondAttribute="centerY" id="bZP-mM-SFG"/>
+                                            <constraint firstItem="9TP-M7-vWv" firstAttribute="top" secondItem="fTG-oW-eou" secondAttribute="top" id="evE-bI-N0i"/>
+                                            <constraint firstItem="fTG-oW-eou" firstAttribute="trailing" secondItem="9TP-M7-vWv" secondAttribute="trailing" id="jno-fo-5Sw"/>
+                                            <constraint firstItem="fTG-oW-eou" firstAttribute="leading" secondItem="HEj-XZ-2Iw" secondAttribute="leading" id="mqU-gY-UHD"/>
+                                            <constraint firstAttribute="width" constant="200" id="ohp-oU-XZk"/>
+                                            <constraint firstItem="fTG-oW-eou" firstAttribute="bottom" secondItem="9TP-M7-vWv" secondAttribute="bottom" id="vGj-Cs-bdW"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Qc6-A9-C0P">
                                         <rect key="frame" x="0.0" y="220" width="414" height="554"/>
                                         <subviews>
@@ -75,7 +103,7 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4On-pM-7BJ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4On-pM-7BJ">
                                                 <rect key="frame" x="0.0" y="484" width="414" height="70"/>
                                                 <color key="backgroundColor" red="1" green="0.6255256213" blue="0.76946238010000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
@@ -108,6 +136,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CWa-5y-Ra1"/>
                     <connections>
+                        <outlet property="activituIndicator" destination="ohf-Fm-aWL" id="Q3C-ge-vDh"/>
                         <outlet property="collectionView" destination="9Gn-Wa-70d" id="G1j-7O-gvQ"/>
                         <outlet property="descriptionLable" destination="4On-pM-7BJ" id="AQ5-hg-KNf"/>
                         <outlet property="selestedImage" destination="fTG-oW-eou" id="E7g-ax-Eh0"/>
@@ -116,6 +145,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="886.95652173913049" y="63.616071428571423"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="Bjm-cM-xU2">
+            <objects>
+                <viewController id="HOf-br-BXf" customClass="WebViewController" customModule="FlowImageApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZM8-nH-OfW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnZ-bN-ODE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sF6-aM-h2a"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sF6-aM-h2a" firstAttribute="trailing" secondItem="xnZ-bN-ODE" secondAttribute="trailing" id="UdJ-mm-rZ9"/>
+                            <constraint firstItem="xnZ-bN-ODE" firstAttribute="top" secondItem="sF6-aM-h2a" secondAttribute="top" id="b3d-st-VWf"/>
+                            <constraint firstItem="xnZ-bN-ODE" firstAttribute="leading" secondItem="sF6-aM-h2a" secondAttribute="leading" id="ghY-Z1-04V"/>
+                            <constraint firstItem="sF6-aM-h2a" firstAttribute="bottom" secondItem="xnZ-bN-ODE" secondAttribute="bottom" id="uA4-m2-GvX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="phL-fi-OGM"/>
+                    <connections>
+                        <outlet property="webView" destination="xnZ-bN-ODE" id="K7D-N5-qE5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WbS-hZ-XVF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="76"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="V9w-nQ-L2H">
@@ -142,6 +206,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

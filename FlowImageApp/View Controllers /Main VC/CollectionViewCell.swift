@@ -11,8 +11,8 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var activituIndicator: UIActivityIndicatorView!
     @IBOutlet var cellImage: UIImageView!
-    var indexPath: IndexPath!
-    var asyncIndex: Int!
+    private var indexPath: IndexPath!
+    private var asyncIndex: Int!
     
     func configureCell(imageData: ImageData, index: IndexPath) {
         indexPath = index
@@ -46,7 +46,7 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     //Handling Error 503
-    func errorHandling() {
+    private func errorHandling() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 61) { [weak self] in
             guard let self = self else { return }
             if self.activituIndicator.isAnimating == true {
@@ -55,10 +55,8 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func placeholder() {
+    private func placeholder() {
         cellImage.image = UIImage(named: "notFound")
         activituIndicator.stopAnimating()
     }
-    
-    
 }

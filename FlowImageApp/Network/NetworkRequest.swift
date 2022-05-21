@@ -14,7 +14,7 @@ class NetworkRequest {
         
     }
     
-    func requestData(urlString: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    func requestData(urlString: String, completion: @escaping (Result<(Data, URLResponse), Error>) -> Void) {
         
         guard let url = URL(string: urlString) else { return }
         
@@ -26,7 +26,8 @@ class NetworkRequest {
                 }
                 
                 guard let data = data else { return }
-                completion(.success(data))
+                guard let responce = responce else { return }
+                completion(.success((data, responce)))
             }
             
         }.resume()

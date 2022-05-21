@@ -25,10 +25,16 @@ class StorageData {
             return
         }
         
-        NetworkDataFetch.shared.fetchImage(urlString: url) { image, error in
+        NetworkDataFetch.shared.fetchImage(urlString: url) { data, response, error in
             if error == nil {
+                
+                guard let data = data else { return }
+                guard let image = UIImage(data: data) else { return }
                 completion(image, nil)
+                
                 print("999999999999999999999")
+                guard let response = response else { return }
+                self.saveImageToCache(data: data, response: response)
             }
         }
     }

@@ -8,66 +8,74 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    @IBOutlet var activituIndicator: UIActivityIndicatorView!
     @IBOutlet var selestedImage: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var descriptionLable: UILabel!
     
+    private var selestedImageData: ImageData?
     var imagesData: [ImageData]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setup()
     }
+    
+    
     
     private func setup() {
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        activituIndicator.hidesWhenStopped = true
+        
         imagesData = DataLoader().imagesData
     }
     
-//    private func setupImageSize() {
-//        selestedImage.frame.size.height =  view.frame.size.height / 60
-//        selestedImage.frame.size.width =  10
-//
-//    }
+    //    private func setupImageSize() {
+    //        selestedImage.frame.size.height =  view.frame.size.height / 60
+    //        selestedImage.frame.size.width =  10
+    //
+    //    }
     
-    
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Web" {
+            let webVC = segue.destination as! WebViewController
+            webVC.imagesDataForWeb = selestedImageData
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegat
 
 extension MainViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        collectionView.deselectItem(at: indexPath, animated: true)
-//    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let url = imagesData?[indexPath.row].url
+        //
+        collectionView.deselectItem(at: indexPath, animated: true)
+        //
+        guard let imageData = imagesData?[indexPath.row] else { return }
+        selestedImageData = imageData
+        let url = imageData.url
         
         selestedImage.image = nil
+        activituIndicator.startAnimating()
+        descriptionLable.text = nil
+        descriptionLable.text = imageData.imageName
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.pulse()
+        
         StorageData.shared.fetchCachImage(with: url, imageView: selestedImage) { [weak self] image, error in
             guard let self = self else { return }
             if error == nil {
                 self.selestedImage.image = image
+                self.activituIndicator.stopAnimating()
             }
             
-            
-            
         }
-        
-        let cell = collectionView.cellForItem(at: indexPath)
-        let pulse = CASpringAnimation(keyPath: "transform.scale")
-        pulse.duration = 0.5
-        pulse.fromValue = 0.95
-        pulse.toValue = 1
-//            pulse.autoreverses = true
-//            pulse.initialVelocity = 0.5
-//            pulse.damping = 1
-        cell?.layer.add(pulse, forKey: nil)
     }
 }
 
