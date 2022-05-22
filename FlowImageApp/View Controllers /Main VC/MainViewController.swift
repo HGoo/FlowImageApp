@@ -28,9 +28,7 @@ class MainViewController: UIViewController {
     private func setup() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        
         activituIndicator.hidesWhenStopped = true
-        
         imagesData = DataLoader().imagesData
     }
     
@@ -53,29 +51,19 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //
-        collectionView.deselectItem(at: indexPath, animated: true)
-        //
         guard let imageData = imagesData?[indexPath.row] else { return }
         selestedImageData = imageData
-        let url = imageData.url
-        
+    
         selestedImage.image = nil
         activituIndicator.startAnimating()
         descriptionLable.text = nil
         descriptionLable.text = imageData.imageName
         
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.pulse()
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        selestedImage.image = cell.cellImage.image
+        activituIndicator.stopAnimating()
+        cell.pulse()
         
-        StorageData.shared.fetchCachImage(with: url, imageView: selestedImage) { [weak self] image, error in
-            guard let self = self else { return }
-            if error == nil {
-                self.selestedImage.image = image
-                self.activituIndicator.stopAnimating()
-            }
-            
-        }
     }
 }
 

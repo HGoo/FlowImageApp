@@ -8,11 +8,11 @@
 import UIKit
 
 extension UICollectionViewCell {
-    func pulse() {
-        let pulse = CASpringAnimation(keyPath: "transform.scale")
-        pulse.duration = 0.5
-        pulse.fromValue = 0.95
-        pulse.toValue = 1
-        layer.add(pulse, forKey: nil)
-    }
+//    func pulse() {
+//        let pulse = CASpringAnimation(keyPath: "transform.scale")
+//        pulse.duration = 0.5
+//        pulse.fromValue = 0.95
+//        pulse.toValue = 1
+//        layer.add(pulse, forKey: nil)
+//    }
 }
