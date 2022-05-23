@@ -19,7 +19,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        collectionView.backgroundColor = UIColor.clear
         setup()
     }
     
@@ -58,6 +59,7 @@ extension MainViewController: UICollectionViewDelegate {
         activituIndicator.startAnimating()
         descriptionLable.text = nil
         descriptionLable.text = imageData.imageName
+        
         
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         selestedImage.image = cell.cellImage.image
