@@ -11,18 +11,15 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var activituIndicator: UIActivityIndicatorView!
     @IBOutlet var cellImage: UIImageView!
+    
     private var indexPath: IndexPath!
     private var asyncIndex: Int!
+    static let shared = CollectionViewCell()
+    
     
     func configureCell(imageData: ImageData, index: IndexPath) {
         indexPath = index
-        activituIndicator.startAnimating()
-        activituIndicator.hidesWhenStopped = true
-        
-        if cellImage.image != UIImage(named: "notFound") {
-            cellImage.image = nil
-        }
-        
+        setupCell()
         
         StorageData.shared.fetchCachImage(with: imageData.url,
                                           imageView: cellImage) { [weak self] image, error in
@@ -40,12 +37,23 @@ class CollectionViewCell: UICollectionViewCell {
         errorHandling()
     }
     
+    private func setupCell() {
+        activituIndicator.startAnimating()
+        activituIndicator.hidesWhenStopped = true
+        
+        // Dublicate bug fix
+        if cellImage.image != UIImage(named: "notFound") {
+            cellImage.image = nil
+        }
+        
+    }
+    
     //Check that image belong cell
     private func equalsAsync(_ image: UIImage) {
         if self.asyncIndex == self.indexPath.row {
             self.cellImage.image = image
             self.activituIndicator.stopAnimating()
-
+            
         }
     }
     
@@ -64,7 +72,7 @@ class CollectionViewCell: UICollectionViewCell {
         activituIndicator.stopAnimating()
     }
     
-    func pulse() {
+    func pulseAmimationCell() {
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         pulse.duration = 0.5
         pulse.fromValue = 0.95

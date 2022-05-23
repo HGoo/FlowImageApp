@@ -9,40 +9,29 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet var activituIndicator: UIActivityIndicatorView!
     @IBOutlet var selestedImage: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var descriptionLable: UILabel!
     
     private var selestedImageData: ImageData?
-    var imagesData: [ImageData]?
+    private var imagesData: [ImageData]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        collectionView.backgroundColor = UIColor.clear
         setup()
     }
-    
-    
-    
+
     private func setup() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        activituIndicator.hidesWhenStopped = true
+        collectionView.backgroundColor = UIColor.clear
         imagesData = DataLoader().imagesData
     }
-    
-    //    private func setupImageSize() {
-    //        selestedImage.frame.size.height =  view.frame.size.height / 60
-    //        selestedImage.frame.size.width =  10
-    //
-    //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Web" {
             let webVC = segue.destination as! WebViewController
-            webVC.imagesDataForWeb = selestedImageData
+            webVC.imageDataForWeb = selestedImageData
         }
     }
 }
@@ -52,20 +41,17 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         guard let imageData = imagesData?[indexPath.row] else { return }
         selestedImageData = imageData
-    
         selestedImage.image = nil
-        activituIndicator.startAnimating()
         descriptionLable.text = nil
         descriptionLable.text = imageData.imageName
         
-        
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
-        selestedImage.image = cell.cellImage.image
-        activituIndicator.stopAnimating()
-        cell.pulse()
         
+        selestedImage.image = cell.cellImage.image
+        cell.pulseAmimationCell()
     }
 }
 
@@ -91,6 +77,7 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let cellInRow = 3
         let sectionsInsert = 15
         let size = view.frame.size.width / CGFloat(cellInRow)

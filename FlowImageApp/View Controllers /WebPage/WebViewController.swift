@@ -9,44 +9,31 @@ import UIKit
 import WebKit
 
 class WebViewController: UIViewController {
+    
     @IBOutlet var webView: WKWebView!
     @IBOutlet var imageNameLable: UILabel!
     @IBOutlet var image: UIImageView!
     @IBOutlet var imageLink: UILabel!
-    var imagesDataForWeb: ImageData?
+    
+    var imageDataForWeb: ImageData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageNameLable.text = imagesDataForWeb?.imageName
-        imageLink.text = imagesDataForWeb?.url
-        
-        
-        loadRequest()
+        setup()
         loadimage()
+        loadRequest()
     }
     
-    @IBAction func goLink(_ sender: Any) {
-        guard let dataWeb = imagesDataForWeb else { return }
-        guard let url = URL(string: dataWeb.url) else { return }
-        
-        showAlerrt(message: dataWeb.url, url: url)
-    }
-    
-    private func loadRequest() {
-        guard let dataWeb =  imagesDataForWeb else { return }
-        let url = "https://www.google.ru/maps/place/\(dataWeb.lat),\(dataWeb.long)"
-        guard let url = URL(string: url) else { return }
-        
-        
-        
-        let urlRequest = URLRequest(url: url)
-        webView.load(urlRequest)
-        
+    private func setup() {
+        imageNameLable.text = imageDataForWeb?.imageName
+        imageLink.text = imageDataForWeb?.url
     }
     
     private func loadimage() {
-        guard let imageUrl =  imagesDataForWeb?.url else { return }
+        
+        guard let imageUrl =  imageDataForWeb?.url else { return }
+        
         StorageData.shared.fetchCachImage(with: imageUrl,
                                           imageView: image) { [weak self] image, error in
             guard let self = self else { return }
@@ -55,9 +42,19 @@ class WebViewController: UIViewController {
             } else {
                 self.image.image = UIImage(named: "notFound")
             }
-                
-            }
+        }
     }
+    
+    private func loadRequest() {
+        
+        guard let dataWeb =  imageDataForWeb else { return }
+        let url = "https://www.google.ru/maps/place/\(dataWeb.lat),\(dataWeb.long)"
+        guard let url = URL(string: url) else { return }
+        
+        let urlRequest = URLRequest(url: url)
+        webView.load(urlRequest)
+    }
+    
     
     func showAlerrt(message: String, url: URL) {
         let alert = UIAlertController(title: "Follow the link?",
@@ -76,5 +73,12 @@ class WebViewController: UIViewController {
         alert.addAction(goAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func goLink(_ sender: Any) {
+        guard let dataWeb = imageDataForWeb else { return }
+        guard let url = URL(string: dataWeb.url) else { return }
+        
+        showAlerrt(message: dataWeb.url, url: url)
     }
 }

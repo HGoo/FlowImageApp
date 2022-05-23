@@ -26,9 +26,6 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fTG-oW-eou">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
                                             </imageView>
-                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-Fm-aWL">
-                                                <rect key="frame" x="197" y="120" width="20" height="20"/>
-                                            </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TP-M7-vWv">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="260"/>
                                                 <state key="normal" title="Button"/>
@@ -39,13 +36,11 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="ohf-Fm-aWL" firstAttribute="centerX" secondItem="HEj-XZ-2Iw" secondAttribute="centerX" id="0K5-Ip-Izy"/>
                                             <constraint firstAttribute="bottom" secondItem="fTG-oW-eou" secondAttribute="bottom" id="2Sa-1T-YMN"/>
                                             <constraint firstItem="9TP-M7-vWv" firstAttribute="leading" secondItem="fTG-oW-eou" secondAttribute="leading" id="6An-XT-7nh"/>
                                             <constraint firstItem="fTG-oW-eou" firstAttribute="top" secondItem="HEj-XZ-2Iw" secondAttribute="top" id="NXA-P2-1Tk"/>
                                             <constraint firstItem="9TP-M7-vWv" firstAttribute="leading" secondItem="HEj-XZ-2Iw" secondAttribute="leading" id="XvS-lx-ipF"/>
                                             <constraint firstAttribute="trailing" secondItem="fTG-oW-eou" secondAttribute="trailing" id="Y8c-dk-OOO"/>
-                                            <constraint firstItem="ohf-Fm-aWL" firstAttribute="centerY" secondItem="HEj-XZ-2Iw" secondAttribute="centerY" id="bZP-mM-SFG"/>
                                             <constraint firstItem="9TP-M7-vWv" firstAttribute="top" secondItem="fTG-oW-eou" secondAttribute="top" id="evE-bI-N0i"/>
                                             <constraint firstItem="fTG-oW-eou" firstAttribute="trailing" secondItem="9TP-M7-vWv" secondAttribute="trailing" id="jno-fo-5Sw"/>
                                             <constraint firstItem="fTG-oW-eou" firstAttribute="leading" secondItem="HEj-XZ-2Iw" secondAttribute="leading" constant="35" id="mqU-gY-UHD"/>
@@ -165,7 +160,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="CWa-5y-Ra1"/>
                     <connections>
-                        <outlet property="activituIndicator" destination="ohf-Fm-aWL" id="Q3C-ge-vDh"/>
                         <outlet property="collectionView" destination="9Gn-Wa-70d" id="G1j-7O-gvQ"/>
                         <outlet property="descriptionLable" destination="4On-pM-7BJ" id="AQ5-hg-KNf"/>
                         <outlet property="selestedImage" destination="fTG-oW-eou" id="E7g-ax-Eh0"/>

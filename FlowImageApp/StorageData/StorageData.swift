@@ -15,13 +15,12 @@ class StorageData {
     func fetchCachImage(with url: String?, imageView: UIImageView, _ completion: @escaping (UIImage?, Error?) -> ()) {
         guard let url = url else { return }
         guard let imageUrl = url.getURL() else {
-            imageView.image = UIImage(named: "notFound")
+            completion(nil, nil)
             return
         }
         
         if let cachedImage = self.getCachedImage(url: imageUrl) {
             completion(cachedImage, nil)
-            print("000000000000000000000")
             return
         }
         
@@ -32,7 +31,6 @@ class StorageData {
                 guard let image = UIImage(data: data) else { return }
                 completion(image, nil)
                 
-                print("999999999999999999999")
                 guard let response = response else { return }
                 self.saveImageToCache(data: data, response: response)
             }
