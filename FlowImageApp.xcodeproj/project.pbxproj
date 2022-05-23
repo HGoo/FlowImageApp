@@ -20,7 +20,6 @@
 		DD9E5BC8283142D900627323 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD9E5BC6283142D900627323 /* LaunchScreen.storyboard */; };
 		DDA2599A2833E77E0013D74D /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA259992833E77E0013D74D /* NetworkRequest.swift */; };
 		DDA2599C2833E7AC0013D74D /* NetworkDataFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2599B2833E7AC0013D74D /* NetworkDataFetch.swift */; };
-		DDA2599E2837B6DD0013D74D /* UICollectionViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2599D2837B6DD0013D74D /* UICollectionViewCell + Extension.swift */; };
 		DDA259A22837BD620013D74D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA259A12837BD620013D74D /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,6 @@
 		DD9E5BC9283142D900627323 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDA259992833E77E0013D74D /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		DDA2599B2833E7AC0013D74D /* NetworkDataFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetch.swift; sourceTree = "<group>"; };
-		DDA2599D2837B6DD0013D74D /* UICollectionViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell + Extension.swift"; sourceTree = "<group>"; };
 		DDA259A12837BD620013D74D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				DD9E5BCF283142F000627323 /* Resources */,
-				DDA2599F2837B7180013D74D /* Helper */,
 				DD9E5BD4283143B100627323 /* Model */,
 				DD9E5BD02831435B00627323 /* View Controllers  */,
 				DD9E5BD12831438300627323 /* Storyboard */,
@@ -148,14 +145,6 @@
 				DD1CC52D28327641005E9DF3 /* Model.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		DDA2599F2837B7180013D74D /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				DDA2599D2837B6DD0013D74D /* UICollectionViewCell + Extension.swift */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		DDA259A02837BD400013D74D /* WebPage */ = {
@@ -238,7 +227,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDA2599E2837B6DD0013D74D /* UICollectionViewCell + Extension.swift in Sources */,
 				DDA259A22837BD620013D74D /* WebViewController.swift in Sources */,
 				DD1CC52E28327641005E9DF3 /* Model.swift in Sources */,
 				DD9E5BC0283142D900627323 /* MainViewController.swift in Sources */,
